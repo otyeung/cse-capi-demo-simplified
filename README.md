@@ -11,18 +11,19 @@ The apps runs on port 3000. Open chrome browser and open "http://localhost:3000"
 
 ### Deploy the apps to Github Pages
 
-Modify package.json file set homepage value to your respository "https://<username>.github.io/cse-capi-demo-simplified/"
+Modify package.json file set homepage value to match your user name and respository name "https://<username>.github.io/<reponame>/"
 
-Commit the changes and deploy React apps to Github
+Commit the code to your repo and deploy to Github pages
 
 ```
-git add
-git commit -m "setup gh-pages"
-git push
+git init
+git commit -m "first commit"
+git brance main
+git push -u origin main
 npm run deploy
 ```
 
-Github will build the production apps and deploy to 'gh-pages' branch, your web apps will be served at "https://<username>.github.io/cse-capi-demo-simplified/"
+Github will build the production apps and deploy to 'gh-pages' branch, your web apps will be served at "https://<username>.github.io/reponame>/"
 
 ### Deploy the apps to Vercel
 
