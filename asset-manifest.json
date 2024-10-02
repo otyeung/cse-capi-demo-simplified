@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cse-capi-demo-simplified/static/css/main.f8baa4e5.css",
-    "main.js": "/cse-capi-demo-simplified/static/js/main.20988bb9.js",
-    "static/js/453.3055c27e.chunk.js": "/cse-capi-demo-simplified/static/js/453.3055c27e.chunk.js",
-    "index.html": "/cse-capi-demo-simplified/index.html",
-    "main.f8baa4e5.css.map": "/cse-capi-demo-simplified/static/css/main.f8baa4e5.css.map",
-    "main.20988bb9.js.map": "/cse-capi-demo-simplified/static/js/main.20988bb9.js.map",
-    "453.3055c27e.chunk.js.map": "/cse-capi-demo-simplified/static/js/453.3055c27e.chunk.js.map"
+    "main.css": "/static/css/main.f8baa4e5.css",
+    "main.js": "/static/js/main.64b93e61.js",
+    "static/js/453.3055c27e.chunk.js": "/static/js/453.3055c27e.chunk.js",
+    "index.html": "/index.html",
+    "main.f8baa4e5.css.map": "/static/css/main.f8baa4e5.css.map",
+    "main.64b93e61.js.map": "/static/js/main.64b93e61.js.map",
+    "453.3055c27e.chunk.js.map": "/static/js/453.3055c27e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8baa4e5.css",
-    "static/js/main.20988bb9.js"
+    "static/js/main.64b93e61.js"
   ]
 }
