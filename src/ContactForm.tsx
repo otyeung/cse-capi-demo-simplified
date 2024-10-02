@@ -98,9 +98,7 @@ const ContactForm: React.FC = () => {
         hashEmail: hashedEmail,
       }))
 
-      // Method 1 : LinkedIn CAPI  - form submit event passed to Data Layer
-      window.dataLayer = window.dataLayer || []
-      window.dataLayer.push({
+      const capi_payload = {
         event: 'capi_form_submit', // pass in an event name
         user_data: {
           linkedinFirstPartyId: formData.li_fat_id,
@@ -118,29 +116,15 @@ const ContactForm: React.FC = () => {
         acxiomID: formData.acxiomId,
         moatID: formData.oracleMoatId,
         leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
-      })
+      }
+
+      // Method 1 : LinkedIn CAPI  - form submit event passed to Data Layer
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push(capi_payload)
 
       // Method 2 : LinkedIn CAPI  - form submit event passed to Google tag via gtag function
       if (typeof window.gtag === 'function') {
-        window.gtag('set', 'user_data', {
-          event: 'capi_form_submit', // pass in an event name
-          user_data: {
-            linkedinFirstPartyId: formData.li_fat_id,
-            sha256_email_address: hashedEmail,
-            address: {
-              first_name: formData.firstName,
-              last_name: formData.lastName,
-              country: formData.countryCode,
-            },
-            jobTitle: formData.title,
-            companyName: formData.company,
-          },
-          currency: formData.currency,
-          value: formData.value,
-          acxiomID: formData.acxiomId,
-          moatID: formData.oracleMoatId,
-          leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
-        })
+        window.gtag('set', 'user_data', capi_payload)
       }
 
       console.log('Form submitted successfully:', formData)
