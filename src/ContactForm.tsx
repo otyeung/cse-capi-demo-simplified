@@ -121,25 +121,27 @@ const ContactForm: React.FC = () => {
       })
 
       // Method 2 : LinkedIn CAPI  - form submit event passed to Google tag via gtag function
-      window.gtag('set', 'user_data', {
-        event: 'form submit', // pass in an event name
-        user_data: {
-          linkedinFirstPartyId: formData.li_fat_id,
-          sha256_email_address: hashedEmail,
-          address: {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            country: formData.countryCode,
+      if (typeof window.gtag === 'function') {
+        window.gtag('set', 'user_data', {
+          event: 'form submit', // pass in an event name
+          user_data: {
+            linkedinFirstPartyId: formData.li_fat_id,
+            sha256_email_address: hashedEmail,
+            address: {
+              first_name: formData.firstName,
+              last_name: formData.lastName,
+              country: formData.countryCode,
+            },
+            jobTitle: formData.title,
+            companyName: formData.company,
           },
-          jobTitle: formData.title,
-          companyName: formData.company,
-        },
-        currency: formData.currency,
-        value: formData.value,
-        acxiomID: formData.acxiomId,
-        moatID: formData.oracleMoatId,
-        leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
-      })
+          currency: formData.currency,
+          value: formData.value,
+          acxiomID: formData.acxiomId,
+          moatID: formData.oracleMoatId,
+          leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
+        })
+      }
 
       console.log('Form submitted successfully:', formData)
 
