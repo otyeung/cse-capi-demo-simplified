@@ -7,12 +7,4 @@ npm i
 npm start
 ```
 
-### Run the apps locally using pnpm
-
-```
-npm install -g pnpm
-pnpm i
-pnpm start
-```
-
 The apps runs on port 3000. Open chrome browser and open "http://localhost:3000" to launch the apps
