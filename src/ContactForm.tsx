@@ -114,7 +114,9 @@ const ContactForm: React.FC = () => {
         },
         currency: formData.currency,
         value: formData.value,
-        lead: 'urn:li:leadGenFormResponse:' + formData.leadId,
+        acxiomID: formData.acxiomId,
+        moatID: formData.oracleMoatId,
+        leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       })
 
       console.log('Form submitted successfully:', formData)
