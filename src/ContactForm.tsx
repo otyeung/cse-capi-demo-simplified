@@ -122,7 +122,7 @@ const ContactForm: React.FC = () => {
 
       // Method 2 : LinkedIn CAPI  - form submit event passed to Google tag via gtag function
       if (typeof window.gtag === 'function') {
-        window.gtag('set', 'capi_form_submit', {
+        window.gtag('event', 'capi_form_submit', {
           user_data: {
             linkedinFirstPartyId: formData.li_fat_id,
             sha256_email_address: hashedEmail,
