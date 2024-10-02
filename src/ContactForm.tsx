@@ -86,18 +86,6 @@ const ContactForm: React.FC = () => {
   }
   // End Cookie routine
 
-  /*   function generateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        const r = (Math.random() * 16) | 0,
-          v = c == 'x' ? r : (r & 0x3) | 0x8
-        return v.toString(16)
-      }
-    )
-  }
-  const uuid = generateUUID() */
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -109,10 +97,10 @@ const ContactForm: React.FC = () => {
         hashEmail: hashedEmail,
       }))
 
-      // LinkedIn CAPI  - Form Submission - send user_data, currency and value to data layer
-      /*       window.dataLayer = window.dataLayer || []
+      // LinkedIn CAPI  - form submit event passed to Data Layer
+      window.dataLayer = window.dataLayer || []
       window.dataLayer.push({
-        event: 'LI-CAPI-Form-Submit',
+        event: 'form submit', // pass in an event name
         user_data: {
           linkedinFirstPartyId: formData.li_fat_id,
           sha256_email_address: hashedEmail,
@@ -126,14 +114,8 @@ const ContactForm: React.FC = () => {
         },
         currency: formData.currency,
         value: formData.value,
-        event_id: uuid,
-      }) */
-
-      // submit form data to Google Sheet
-      /*       await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/submit-google-form`,
-        { ...formData, hashEmail: hashedEmail }
-      ) */
+        lead: 'urn:li:leadGenFormResponse:' + formData.leadId,
+      })
 
       console.log('Form submitted successfully:', formData)
 
@@ -176,7 +158,7 @@ const ContactForm: React.FC = () => {
     setFormData(initialFormData)
   }
 
-  // Begin SHA-256 hashing function
+  // Begin SHA-256 hashing function, email is converted to lower case before hashing
   const hashData = async (value: string): Promise<string> => {
     const encoder = new TextEncoder()
     const buffer = await crypto.subtle.digest(
