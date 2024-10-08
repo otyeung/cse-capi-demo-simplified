@@ -112,12 +112,12 @@ const ContactForm: React.FC = () => {
           },
           jobTitle: formData.title,
           companyName: formData.company,
+          acxiomID: formData.acxiomId,
+          moatID: formData.oracleMoatId,
+          leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
         },
         currency: formData.currency,
         value: formData.value,
-        acxiomID: formData.acxiomId,
-        moatID: formData.oracleMoatId,
-        leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       })
 
       // Method 2 : LinkedIn CAPI  - form submit event passed to Google tag via gtag function
@@ -133,12 +133,12 @@ const ContactForm: React.FC = () => {
       //       },
       //       jobTitle: formData.title,
       //       companyName: formData.company,
+      //       acxiomID: formData.acxiomId,
+      //       moatID: formData.oracleMoatId,
+      //       leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       //     },
       //     currency: formData.currency,
       //     value: formData.value,
-      //     acxiomID: formData.acxiomId,
-      //     moatID: formData.oracleMoatId,
-      //     leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       //   })
       // }
 
