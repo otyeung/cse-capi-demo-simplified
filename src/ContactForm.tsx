@@ -99,26 +99,26 @@ const ContactForm: React.FC = () => {
       }))
 
       // Method 1 : LinkedIn CAPI  - form submit event passed to Data Layer
-      window.dataLayer = window.dataLayer || []
-      window.dataLayer.push({
-        event: 'CAPI Form Submit', // pass in an event name
-        user_data: {
-          linkedinFirstPartyId: formData.li_fat_id,
-          sha256_email_address: hashedEmail,
-          address: {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            country: formData.countryCode,
-          },
-          jobTitle: formData.title,
-          companyName: formData.company,
-          acxiomID: formData.acxiomId,
-          moatID: formData.oracleMoatId,
-          //leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
-        },
-        currency: formData.currency,
-        value: formData.value,
-      })
+      // window.dataLayer = window.dataLayer || []
+      // window.dataLayer.push({
+      //   event: 'CAPI Form Submit', // pass in an event name
+      //   user_data: {
+      //     linkedinFirstPartyId: formData.li_fat_id,
+      //     sha256_email_address: hashedEmail,
+      //     address: {
+      //       first_name: formData.firstName,
+      //       last_name: formData.lastName,
+      //       country: formData.countryCode,
+      //     },
+      //     jobTitle: formData.title,
+      //     companyName: formData.company,
+      //     acxiomID: formData.acxiomId,
+      //     moatID: formData.oracleMoatId,
+      //     //leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
+      //   },
+      //   currency: formData.currency,
+      //   value: formData.value,
+      // })
 
       // Method 2 : LinkedIn CAPI  - form submit event passed to Google tag via gtag function
       // if (typeof window.gtag === 'function') {
