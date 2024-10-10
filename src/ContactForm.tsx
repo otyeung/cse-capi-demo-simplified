@@ -198,7 +198,7 @@ const ContactForm: React.FC = () => {
   return (
     <>
       <div className='App'>
-        <form className='centered-form' onSubmit={handleSubmit}>
+        <form className='centered-form' onSubmit={handleSubmit} id='capiForm'>
           <h1 className='form-title'>LinkedIn Online CAPI Demo</h1>
 
           <label>
