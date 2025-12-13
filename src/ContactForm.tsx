@@ -93,10 +93,10 @@ const ContactForm: React.FC = () => {
     try {
       // Hash email before submission
       const hashedEmail = await hashData(formData.email)
-      setFormData((prevData) => ({
-        ...prevData,
+      const submittedFormData = {
+        ...formData,
         hashEmail: hashedEmail,
-      }))
+      }
 
       // Method 1 : LinkedIn CAPI  - form submit event passed to Data Layer
       // window.dataLayer = window.dataLayer || []
@@ -142,11 +142,12 @@ const ContactForm: React.FC = () => {
       //   })
       // }
 
-      console.log('Form submitted successfully:', formData)
+      console.log('Form submitted successfully:', submittedFormData)
 
       // Set the modal message to display all form data as a string
       setModalMessage(
-        'Form submitted successfully : ' + JSON.stringify(formData, null, 2)
+        'Form submitted successfully : ' +
+          JSON.stringify(submittedFormData, null, 2)
       )
       setSubmissionStatus('success')
       setIsModalOpen(true)
@@ -161,16 +162,17 @@ const ContactForm: React.FC = () => {
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
 
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }))
-
     if (name === 'email') {
       const hashedEmail = await hashData(value)
       setFormData((prevData) => ({
         ...prevData,
+        [name]: value,
         hashEmail: hashedEmail,
+      }))
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
       }))
     }
   }
