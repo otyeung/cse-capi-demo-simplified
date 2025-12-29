@@ -24,9 +24,6 @@ interface FormData {
   countryCode: string
   currency: string
   value: string
-  acxiomId: string
-  oracleMoatId: string
-  leadId: string
 }
 
 // Default values for form data
@@ -41,9 +38,6 @@ const initialFormData: FormData = {
   countryCode: 'US',
   currency: 'USD',
   value: '0.0',
-  acxiomId: '12345678',
-  oracleMoatId: '12345678',
-  leadId: '12345678',
 }
 
 const ContactForm: React.FC = () => {
@@ -112,9 +106,6 @@ const ContactForm: React.FC = () => {
       //     },
       //     jobTitle: formData.title,
       //     companyName: formData.company,
-      //     acxiomID: formData.acxiomId,
-      //     moatID: formData.oracleMoatId,
-      //     //leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       //   },
       //   currency: formData.currency,
       //   value: formData.value,
@@ -133,9 +124,6 @@ const ContactForm: React.FC = () => {
       //       },
       //       jobTitle: formData.title,
       //       companyName: formData.company,
-      //       acxiomID: formData.acxiomId,
-      //       moatID: formData.oracleMoatId,
-      //       leadID: 'urn:li:leadGenFormResponse:' + formData.leadId,
       //     },
       //     currency: formData.currency,
       //     value: formData.value,
@@ -308,39 +296,6 @@ const ContactForm: React.FC = () => {
               value={formData.value}
               onChange={handleChange}
               id='value'
-            />
-          </label>
-
-          <label>
-            Acxiom ID:
-            <input
-              type='text'
-              name='acxiomId'
-              value={formData.acxiomId}
-              onChange={handleChange}
-              id='acxiomId'
-            />
-          </label>
-
-          <label>
-            Oracle Moat ID:
-            <input
-              type='text'
-              name='oracleMoatId'
-              value={formData.oracleMoatId}
-              onChange={handleChange}
-              id='oracleMoatId'
-            />
-          </label>
-
-          <label>
-            Lead ID:
-            <input
-              type='text'
-              name='leadId'
-              value={formData.leadId}
-              onChange={handleChange}
-              id='leadId'
             />
           </label>
 
